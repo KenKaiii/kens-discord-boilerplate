@@ -22,8 +22,8 @@ A modern Discord.js v14 bot boilerplate with TypeScript, ready for Railway deplo
 ### 1. Clone and Install
 
 ```bash
-git clone https://github.com/yourusername/kens-discord-bot.git
-cd kens-discord-bot
+git clone https://github.com/KenKaiii/kens-discord-boilerplate.git
+cd kens-discord-boilerplate
 npm install
 ```
 
@@ -167,7 +167,7 @@ export default event;
    - `DISCORD_CLIENT_ID`
 6. Railway will automatically build and deploy
 
-The `railway.json` config handles build and start commands automatically.
+The `railway.toml` config handles build and start commands automatically.
 
 ## Code Quality
 
