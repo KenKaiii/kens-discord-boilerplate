@@ -2,9 +2,12 @@ import type {
   ChatInputCommandInteraction,
   Client,
   Collection,
+  Message,
+  MessageReaction,
   SlashCommandBuilder,
   SlashCommandOptionsOnlyBuilder,
   SlashCommandSubcommandsOnlyBuilder,
+  User,
 } from 'discord.js';
 
 export interface Command {
@@ -26,4 +29,11 @@ export interface Event {
 
 export interface ExtendedClient extends Client {
   commands: Collection<string, Command>;
+}
+
+export interface Feature {
+  name: string;
+  init: (client: Client) => Promise<void>;
+  onMessage?: (message: Message) => Promise<void>;
+  onReaction?: (reaction: MessageReaction, user: User) => Promise<void>;
 }

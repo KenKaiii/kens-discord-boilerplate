@@ -2,7 +2,7 @@ import { REST, Routes } from 'discord.js';
 import { readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { config } from './config.js';
+import { config } from './utils/config.js';
 import type { Command } from './types/index.js';
 
 const __filename = fileURLToPath(import.meta.url);

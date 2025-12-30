@@ -8,11 +8,16 @@ A Discord.js v14 bot boilerplate in TypeScript with automatic command/event hand
 src/
 ├── commands/           # Slash commands organized by category
 │   └── utility/        # Utility commands (ping, info)
-├── events/             # Discord.js event handlers (ready, interactionCreate)
+├── events/             # Discord.js event handlers
+├── features/           # Plugin-style features (auto-loaded)
 ├── handlers/           # Dynamic loaders for commands and events
-├── types/              # TypeScript interfaces (Command, Event, ExtendedClient)
-├── config.ts           # Environment configuration
-├── deploy-commands.ts  # Script to register slash commands with Discord
+├── types/              # TypeScript interfaces
+├── utils/              # Utility modules
+│   ├── config.ts       # Environment configuration
+│   ├── logger.ts       # Colored console logging
+│   ├── store.ts        # JSON file storage
+│   └── ai.ts           # AI integration (Groq/OpenAI)
+├── deploy-commands.ts  # Script to register slash commands
 └── index.ts            # Bot entry point
 ```
 
@@ -21,13 +26,12 @@ src/
 **Keep code organized and modularized:**
 - Commands → `src/commands/<category>/`, one command per file
 - Events → `src/events/`, one event per file
-- Types → `src/types/`, grouped by domain
-- Handlers → `src/handlers/`, one handler per concern
+- Features → `src/features/`, one feature per file
+- Utilities → `src/utils/`, grouped by functionality
+- Types → `src/types/`
 
-**Modularity principles:**
-- Single responsibility per file
-- Export default for commands and events
-- Use `Command` and `Event` interfaces from `src/types/`
+**See `docs/` folder for detailed guides on adding:**
+- Commands, Events, Features, AI, Storage, Scheduled Tasks, Embeds/Buttons
 
 ## Code Quality - Zero Tolerance
 
@@ -39,22 +43,13 @@ npm run check
 
 This runs typecheck + lint (includes Prettier formatting checks).
 
-To auto-fix issues:
-
-```bash
-npm run lint:fix
-```
-
 Fix ALL errors/warnings before continuing.
 
-## Adding Commands
+## Quick Reference
 
-1. Create file in `src/commands/<category>/`
-2. Export default with `Command` interface
-3. Run `npm run deploy-commands` to register
-
-## Adding Events
-
-1. Create file in `src/events/`
-2. Export default with `Event` interface
-3. Events auto-load on bot restart
+```bash
+npm run dev              # Development with hot reload
+npm run deploy-commands  # Register slash commands
+npm run check            # Type check + lint
+npm run lint:fix         # Auto-fix lint issues
+```
